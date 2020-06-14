@@ -13076,13 +13076,17 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 
 
-<span class="n">year_df1</span> <span class="o">=</span>  <span class="n">df1</span> <span class="o">=</span>  <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;year.xlsx&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">year_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;long.xlsx&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">month_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;month.xlsx&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+<span class="n">week2_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;short.xlsx&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+
+<span class="n">result_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;to-produce-dump.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13092,10 +13096,184 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">year_df1</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df</span> <span class="o">=</span> <span class="n">result_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;Бренд&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">==</span><span class="kc">False</span><span class="p">),:]</span>
+<span class="n">result_df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[2]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Бренд</th>
+      <th>Категория</th>
+      <th>Наименование</th>
+      <th>Номер 1C</th>
+      <th>Артикул</th>
+      <th>Размер</th>
+      <th>Количество</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>10237723.0</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на высокой танкетке</td>
+      <td>10237724.0</td>
+      <td>/АвтопяткаНМ0010/Черный</td>
+      <td>0</td>
+      <td>6.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка Heel Mate Супер Защита для обуви c т...</td>
+      <td>10237726.0</td>
+      <td>/АвтопяткаНМ0012/Черный</td>
+      <td>0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для обуви без каблука HEEL MATE de Luxe</td>
+      <td>10237728.0</td>
+      <td>/АвтопяткаНМ002/Черный</td>
+      <td>0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка Полная защита для женской обуви HEEL...</td>
+      <td>10237729.0</td>
+      <td>/АвтопяткаНМ003/Черный</td>
+      <td>0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>377</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709263.0</td>
+      <td>ФутболкаАлекса/Белый</td>
+      <td>S</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>378</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709263.0</td>
+      <td>ФутболкаАлекса/Белый</td>
+      <td>XS</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>380</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709264.0</td>
+      <td>ФутболкаАлекса/Василек</td>
+      <td>S</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>382</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709266.0</td>
+      <td>ФутболкаАлекса/СерыйМеланж</td>
+      <td>M</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>383</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709266.0</td>
+      <td>ФутболкаАлекса/СерыйМеланж</td>
+      <td>S</td>
+      <td>1.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>252 rows × 7 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">result_df</span><span class="o">.</span><span class="n">info</span><span class="p">())</span>
 </pre></div>
 
     </div>
@@ -13113,30 +13291,19 @@ div#notebook {
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
-RangeIndex: 5868 entries, 0 to 5867
-Data columns (total 18 columns):
- #   Column                         Non-Null Count  Dtype  
----  ------                         --------------  -----  
- 0   Бренд                          5868 non-null   object 
- 1   Предмет                        5868 non-null   object 
- 2   Сезон                          4710 non-null   object 
- 3   Коллекция                      1164 non-null   object 
- 4   Наименование                   5868 non-null   object 
- 5   Артикул поставщика             5868 non-null   object 
- 6   Номенклатура                   5868 non-null   int64  
- 7   Баркод                         5867 non-null   object 
- 8   размер                         5868 non-null   object 
- 9   Контракт                       5868 non-null   object 
- 10  Склад                          5868 non-null   object 
- 11  шт                             5868 non-null   int64  
- 12  себестоимость                  5868 non-null   int64  
- 13  шт.1                           5868 non-null   int64  
- 14  себестоимость.1                5868 non-null   float64
- 15  шт.2                           5868 non-null   int64  
- 16  руб (вознаграждение за товар)  5868 non-null   float64
- 17  Текущий остаток, шт            5868 non-null   int64  
-dtypes: float64(2), int64(6), object(10)
-memory usage: 825.3+ KB
+Int64Index: 252 entries, 0 to 383
+Data columns (total 7 columns):
+ #   Column        Non-Null Count  Dtype  
+---  ------        --------------  -----  
+ 0   Бренд         252 non-null    object 
+ 1   Категория     252 non-null    object 
+ 2   Наименование  252 non-null    object 
+ 3   Номер 1C      252 non-null    float64
+ 4   Артикул       252 non-null    object 
+ 5   Размер        252 non-null    object 
+ 6   Количество    252 non-null    float64
+dtypes: float64(2), object(5)
+memory usage: 15.8+ KB
 None
 </pre>
 </div>
@@ -13148,10 +13315,10 @@ None
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">year_df1</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">result_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">result_df</span><span class="p">[</span><span class="s1">&#39;Артикул&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;/АвтопяткаНМ0010/Черный&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13164,7 +13331,84 @@ None
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Бренд</th>
+      <th>Категория</th>
+      <th>Наименование</th>
+      <th>Номер 1C</th>
+      <th>Артикул</th>
+      <th>Размер</th>
+      <th>Количество</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на высокой танкетке</td>
+      <td>10237724.0</td>
+      <td>/АвтопяткаНМ0010/Черный</td>
+      <td>0</td>
+      <td>6.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">uniq</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Бренд&#39;</span><span class="p">,</span><span class="s1">&#39;Предмет&#39;</span><span class="p">,</span><span class="s1">&#39;Наименование&#39;</span><span class="p">,</span><span class="s1">&#39;Артикул поставщика&#39;</span><span class="p">,</span><span class="s1">&#39;размер&#39;</span><span class="p">,</span><span class="s1">&#39;Склад&#39;</span><span class="p">,</span><span class="s1">&#39;шт&#39;</span><span class="p">,</span><span class="s1">&#39;Текущий остаток, шт&#39;</span><span class="p">,</span><span class="s1">&#39;шт.1&#39;</span><span class="p">,</span><span class="s1">&#39;шт.2&#39;</span><span class="p">]</span>
+<span class="n">week2</span> <span class="o">=</span> <span class="n">week2_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">uniq</span><span class="p">]</span>
+<span class="c1">#year</span>
+<span class="c1">#result = year.groupby(list(year)).size().reset_index(name=&quot;количество&quot;)</span>
+
+<span class="n">week2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">week2</span><span class="p">[</span><span class="s1">&#39;Артикул поставщика&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;/АвтопяткаНМ001/Черный&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13189,259 +13433,536 @@ None
       <th></th>
       <th>Бренд</th>
       <th>Предмет</th>
-      <th>Сезон</th>
-      <th>Коллекция</th>
       <th>Наименование</th>
       <th>Артикул поставщика</th>
-      <th>Номенклатура</th>
-      <th>Баркод</th>
       <th>размер</th>
-      <th>Контракт</th>
       <th>Склад</th>
       <th>шт</th>
-      <th>себестоимость</th>
-      <th>шт.1</th>
-      <th>себестоимость.1</th>
-      <th>шт.2</th>
-      <th>руб (вознаграждение за товар)</th>
       <th>Текущий остаток, шт</th>
+      <th>шт.1</th>
+      <th>шт.2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>258</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>Подольск</td>
+      <td>0</td>
+      <td>4</td>
+      <td>7</td>
+      <td>5</td>
+    </tr>
+    <tr>
+      <th>630</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>Екатеринбург</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>916</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>Санкт-Петербург</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">week2</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="s1">&#39;raz&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">week2</span><span class="p">[</span><span class="s1">&#39;шт.1&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">week2</span><span class="p">[</span><span class="s1">&#39;шт.2&#39;</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">week2</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">week2</span><span class="p">[</span><span class="s1">&#39;Артикул поставщика&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;/АвтопяткаНМ001/Черный&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[7]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Бренд</th>
+      <th>Предмет</th>
+      <th>Наименование</th>
+      <th>Артикул поставщика</th>
+      <th>размер</th>
+      <th>Склад</th>
+      <th>шт</th>
+      <th>Текущий остаток, шт</th>
+      <th>шт.1</th>
+      <th>шт.2</th>
+      <th>raz</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>258</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>Подольск</td>
+      <td>0</td>
+      <td>4</td>
+      <td>7</td>
+      <td>5</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>630</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>Екатеринбург</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>916</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>Санкт-Петербург</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#result = week2.loc[:,&quot;mean&quot;] = week2.groupby([&#39;Артикул поставщика&#39;,&#39;размер&#39;])[&#39;raz&#39;].mean()</span>
+<span class="c1">#result</span>
+<span class="n">res</span> <span class="o">=</span> <span class="n">week2</span><span class="o">.</span><span class="n">groupby</span><span class="p">([</span><span class="s1">&#39;Артикул поставщика&#39;</span><span class="p">,</span><span class="s1">&#39;размер&#39;</span><span class="p">])[</span><span class="s1">&#39;raz&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;mean&quot;</span><span class="p">)</span>
+<span class="n">res</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[8]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Артикул поставщика</th>
+      <th>размер</th>
+      <th>mean</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>ILTANI</td>
-      <td>Маски многоразовые</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Маска защитная 3 шт многоразовая</td>
-      <td>МаскаТканевая/Черный</td>
-      <td>11758712</td>
-      <td>2050000488290</td>
-      <td>M</td>
-      <td>1700-5093 Агентский</td>
-      <td>Подольск</td>
+      <td>/АвтопяткаНМ001/Черный</td>
       <td>0</td>
-      <td>0</td>
-      <td>2692</td>
-      <td>1580209.88</td>
-      <td>2540</td>
-      <td>1489199.57</td>
-      <td>387</td>
+      <td>0.666667</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>ILTANI</td>
-      <td>Маски многоразовые</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>Маска защитная 3 шт многоразовая</td>
-      <td>МаскаТканевая/Черный</td>
-      <td>11758712</td>
-      <td>2050000488184</td>
-      <td>S</td>
-      <td>1700-5093 Агентский</td>
-      <td>Подольск</td>
+      <td>/АвтопяткаНМ0010/Черный</td>
       <td>0</td>
-      <td>0</td>
-      <td>2248</td>
-      <td>1348774.21</td>
-      <td>2040</td>
-      <td>1216211.77</td>
-      <td>902</td>
+      <td>8.000000</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>ILTANI</td>
-      <td>Платья</td>
-      <td>круглогодичный</td>
-      <td>Весна-Лето 2020</td>
-      <td>Платье женское прямого кроя до колена</td>
-      <td>/ПлатьеДашаТрикотаж/Голубой</td>
-      <td>9646506</td>
-      <td>2050000298950</td>
-      <td>M</td>
-      <td>1700-5093 Агентский</td>
-      <td>Подольск</td>
-      <td>11</td>
-      <td>30400</td>
-      <td>2052</td>
-      <td>2341953.90</td>
-      <td>937</td>
-      <td>1062911.01</td>
-      <td>381</td>
+      <td>/АвтопяткаНМ0011/Черный</td>
+      <td>0</td>
+      <td>0.333333</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>ILTANI</td>
-      <td>Платья</td>
-      <td>круглогодичный</td>
-      <td>Весна-Лето 2020</td>
-      <td>Платье женское прямого кроя до колена</td>
-      <td>/ПлатьеДашаТрикотаж/Голубой</td>
-      <td>9646506</td>
-      <td>2050000299070</td>
-      <td>L</td>
-      <td>1700-5093 Агентский</td>
-      <td>Подольск</td>
-      <td>11</td>
-      <td>33440</td>
-      <td>1954</td>
-      <td>2220493.51</td>
-      <td>743</td>
-      <td>839979.73</td>
-      <td>661</td>
+      <td>/АвтопяткаНМ0013/Черный</td>
+      <td>0</td>
+      <td>1.000000</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>ILTANI</td>
-      <td>Платья</td>
-      <td>круглогодичный</td>
-      <td>Весна-Лето 2020</td>
-      <td>Платье женское прямого кроя до колена</td>
-      <td>/ПлатьеДашаТрикотаж/Голубой</td>
-      <td>9646506</td>
-      <td>2050000298844</td>
-      <td>S</td>
-      <td>1700-5093 Агентский</td>
-      <td>Подольск</td>
-      <td>6</td>
-      <td>18240</td>
-      <td>1530</td>
-      <td>1741396.38</td>
-      <td>707</td>
-      <td>802826.41</td>
-      <td>369</td>
+      <td>/АвтопяткаНМ006/0001Прозрачный</td>
+      <td>0</td>
+      <td>1.000000</td>
     </tr>
     <tr>
       <th>...</th>
       <td>...</td>
       <td>...</td>
       <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
-      <td>...</td>
     </tr>
     <tr>
-      <th>5863</th>
-      <td>ILTANI</td>
-      <td>Юбки</td>
-      <td>круглогодичный</td>
-      <td>NaN</td>
-      <td>Юбка в складку до колена</td>
-      <td>/ЮбкаМэри/Черный</td>
-      <td>9777630</td>
-      <td>2050000293344</td>
-      <td>44</td>
-      <td>1700-5093 Агентский</td>
-      <td>Подольск</td>
-      <td>5</td>
-      <td>26725</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
+      <th>799</th>
+      <td>ШортыДжинс/СероГолубой</td>
+      <td>27</td>
+      <td>2.000000</td>
     </tr>
     <tr>
-      <th>5864</th>
-      <td>ILTANI</td>
-      <td>Юбки</td>
-      <td>круглогодичный</td>
-      <td>NaN</td>
-      <td>Юбка в складку до колена</td>
-      <td>/ЮбкаМэри/Черный</td>
-      <td>9777630</td>
-      <td>2050000293450</td>
-      <td>42</td>
-      <td>1700-5093 Агентский</td>
-      <td>Подольск</td>
-      <td>5</td>
-      <td>26725</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
+      <th>800</th>
+      <td>ШортыДжинс/СероГолубой</td>
+      <td>28</td>
+      <td>4.000000</td>
     </tr>
     <tr>
-      <th>5865</th>
-      <td>ILTANI</td>
-      <td>Юбки</td>
-      <td>круглогодичный</td>
-      <td>Весна-Лето 2020</td>
-      <td>Юбка в складку до колена</td>
-      <td>/ЮбкаМэри/Черный</td>
-      <td>9777630</td>
-      <td>2050000293122</td>
-      <td>48</td>
-      <td>1700-5093 Агентский</td>
-      <td>МЛП-Подольск 5</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>1</td>
+      <th>801</th>
+      <td>ШортыДжинсовые0520/Голубой</td>
+      <td>30</td>
+      <td>0.000000</td>
     </tr>
     <tr>
-      <th>5866</th>
-      <td>ILTANI</td>
-      <td>Юбки</td>
-      <td>круглогодичный</td>
-      <td>NaN</td>
-      <td>Юбка в складку до колена</td>
-      <td>/ЮбкаМэри/Черный</td>
-      <td>9777630</td>
-      <td>2050000293016</td>
-      <td>50</td>
-      <td>1700-5093 Агентский</td>
-      <td>Подольск</td>
-      <td>5</td>
-      <td>26725</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
+      <th>802</th>
+      <td>ШортыДжинсовые0520/Голубой</td>
+      <td>31</td>
+      <td>2.000000</td>
     </tr>
     <tr>
-      <th>5867</th>
-      <td>ILTANI</td>
-      <td>Юбки</td>
-      <td>круглогодичный</td>
-      <td>NaN</td>
-      <td>Юбка в складку до колена</td>
-      <td>/ЮбкаМэри/Черный</td>
-      <td>9777630</td>
-      <td>2050000293238</td>
-      <td>46</td>
-      <td>1700-5093 Агентский</td>
-      <td>Подольск</td>
-      <td>5</td>
-      <td>26725</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
-      <td>0.00</td>
-      <td>0</td>
+      <th>803</th>
+      <td>ШортыДжинсовые0520/Голубой</td>
+      <td>32</td>
+      <td>13.000000</td>
     </tr>
   </tbody>
 </table>
-<p>5868 rows × 18 columns</p>
+<p>804 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#del res[&#39;размер&#39;]</span>
+
+<span class="n">res_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">week2</span><span class="p">,</span> <span class="n">res</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span><span class="s1">&#39;Артикул поставщика&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;Артикул поставщика&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;/АвтопяткаНМ001/Черный&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[28]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Бренд</th>
+      <th>Предмет</th>
+      <th>Наименование</th>
+      <th>Артикул поставщика</th>
+      <th>размер</th>
+      <th>Склад</th>
+      <th>шт</th>
+      <th>Текущий остаток, шт</th>
+      <th>шт.1</th>
+      <th>шт.2</th>
+      <th>raz</th>
+      <th>mean</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4181</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>Подольск</td>
+      <td>0</td>
+      <td>4</td>
+      <td>7</td>
+      <td>5</td>
+      <td>2</td>
+      <td>0.666667</td>
+    </tr>
+    <tr>
+      <th>4182</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>Екатеринбург</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0.666667</td>
+    </tr>
+    <tr>
+      <th>4183</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>Санкт-Петербург</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0.666667</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;raz&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">],</span> <span class="s1">&#39;sklad_class&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;Склад&#39;</span><span class="p">]</span>
+<span class="n">res_df</span> <span class="o">=</span> <span class="n">res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;raz&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;mean&#39;</span><span class="p">],</span> <span class="p">:]</span>
+<span class="n">res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;Артикул поставщика&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;/АвтопяткаНМ008/Черный&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[30]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Бренд</th>
+      <th>Предмет</th>
+      <th>Наименование</th>
+      <th>Артикул поставщика</th>
+      <th>размер</th>
+      <th>Склад</th>
+      <th>шт</th>
+      <th>Текущий остаток, шт</th>
+      <th>шт.1</th>
+      <th>шт.2</th>
+      <th>raz</th>
+      <th>mean</th>
+      <th>sklad_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4853</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка Heel Mate de Luxe Ажурная-Для женско...</td>
+      <td>/АвтопяткаНМ008/Черный</td>
+      <td>0</td>
+      <td>Подольск</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>4854</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка Heel Mate de Luxe Ажурная-Для женско...</td>
+      <td>/АвтопяткаНМ008/Черный</td>
+      <td>0</td>
+      <td>Екатеринбург</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>Екатеринбург</td>
+    </tr>
+  </tbody>
+</table>
 </div>
 </div>
 
@@ -13456,10 +13977,8 @@ None
 <div class="prompt input_prompt">In&nbsp;[31]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">uniq</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Бренд&#39;</span><span class="p">,</span><span class="s1">&#39;Предмет&#39;</span><span class="p">,</span><span class="s1">&#39;Наименование&#39;</span><span class="p">,</span><span class="s1">&#39;Номенклатура&#39;</span><span class="p">,</span><span class="s1">&#39;размер&#39;</span><span class="p">,</span><span class="s1">&#39;Склад&#39;</span><span class="p">]</span>
-<span class="n">year</span> <span class="o">=</span> <span class="n">year_df1</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">uniq</span><span class="p">]</span>
-<span class="c1">#year</span>
-<span class="n">year</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="n">year</span><span class="p">))</span><span class="o">.</span><span class="n">size</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;количество&quot;</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#res_df = res_df.drop_duplicates()</span>
+<span class="n">res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">res_df</span><span class="p">[</span><span class="s1">&#39;Артикул поставщика&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;/АвтопяткаНМ008/Черный&#39;</span><span class="p">]</span>
 </pre></div>
 
     </div>
@@ -13498,62 +14017,423 @@ None
       <th>Бренд</th>
       <th>Предмет</th>
       <th>Наименование</th>
-      <th>Номенклатура</th>
+      <th>Артикул поставщика</th>
       <th>размер</th>
       <th>Склад</th>
-      <th>количество</th>
+      <th>шт</th>
+      <th>Текущий остаток, шт</th>
+      <th>шт.1</th>
+      <th>шт.2</th>
+      <th>raz</th>
+      <th>mean</th>
+      <th>sklad_class</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4853</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка Heel Mate de Luxe Ажурная-Для женско...</td>
+      <td>/АвтопяткаНМ008/Черный</td>
+      <td>0</td>
+      <td>Подольск</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3</td>
+      <td>4</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>4854</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка Heel Mate de Luxe Ажурная-Для женско...</td>
+      <td>/АвтопяткаНМ008/Черный</td>
+      <td>0</td>
+      <td>Екатеринбург</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+      <td>1.0</td>
+      <td>Екатеринбург</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_res</span> <span class="o">=</span> <span class="n">res_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s2">&quot;Артикул поставщика&quot;</span><span class="p">,</span><span class="s1">&#39;размер&#39;</span><span class="p">,</span> <span class="s1">&#39;Склад&#39;</span><span class="p">]]</span>
+<span class="n">df_res</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Артикул&#39;</span><span class="p">,</span><span class="s1">&#39;Размер&#39;</span><span class="p">,</span> <span class="s1">&#39;Склад&#39;</span><span class="p">]</span>
+<span class="n">df_res</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[37]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Артикул</th>
+      <th>Размер</th>
+      <th>Склад</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>ECOCLEAN</td>
-      <td>Антисептики кожные</td>
-      <td>Антисептик для рук (спиртовой)</td>
-      <td>11999155</td>
-      <td>0</td>
-      <td>МЛП-Подольск 5</td>
-      <td>1</td>
+      <td>ДжинсыЖенские1205/Серый</td>
+      <td>26</td>
+      <td>Подольск</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>ECOCLEAN</td>
-      <td>Антисептики кожные</td>
-      <td>Антисептик для рук (спиртовой)</td>
-      <td>11999155</td>
-      <td>0</td>
+      <td>ДжинсыЖенские1205/Серый</td>
+      <td>26</td>
       <td>Подольск</td>
-      <td>2</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>ILTANI</td>
-      <td>Автопятки</td>
-      <td>Автопятка Heel Mate de Luxe Ажурная-Для женско...</td>
-      <td>10237732</td>
-      <td>0</td>
-      <td>Екатеринбург</td>
-      <td>1</td>
+      <td>ДжинсыЖенские1205/Серый</td>
+      <td>26</td>
+      <td>Подольск</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>ILTANI</td>
-      <td>Автопятки</td>
-      <td>Автопятка Heel Mate de Luxe Ажурная-Для женско...</td>
-      <td>10237732</td>
-      <td>0</td>
-      <td>Краснодар</td>
-      <td>1</td>
+      <td>ДжинсыЖенские1205/Серый</td>
+      <td>26</td>
+      <td>Подольск</td>
     </tr>
     <tr>
       <th>4</th>
+      <td>ДжинсыЖенские1205/Серый</td>
+      <td>26</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6898</th>
+      <td>/ЮбкаМэри/ТемноСиний</td>
+      <td>52</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>6899</th>
+      <td>/ЮбкаМэри/ТемноСиний</td>
+      <td>52</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>6900</th>
+      <td>/ЮбкаМэри/ТемноСиний</td>
+      <td>52</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>6901</th>
+      <td>/ЮбкаМэри/ТемноСиний</td>
+      <td>52</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>6902</th>
+      <td>/ЮбкаМэри/ТемноСиний</td>
+      <td>52</td>
+      <td>Подольск</td>
+    </tr>
+  </tbody>
+</table>
+<p>3950 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_res</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df_res</span><span class="p">[</span><span class="s1">&#39;Артикул&#39;</span><span class="p">]</span><span class="o">==</span><span class="s1">&#39;/АвтопяткаНМ008/Черный&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[38]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Артикул</th>
+      <th>Размер</th>
+      <th>Склад</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>4853</th>
+      <td>/АвтопяткаНМ008/Черный</td>
+      <td>0</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>4854</th>
+      <td>/АвтопяткаНМ008/Черный</td>
+      <td>0</td>
+      <td>Екатеринбург</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">result_df</span><span class="p">,</span> <span class="n">df_res</span><span class="p">,</span> <span class="n">how</span> <span class="o">=</span><span class="s1">&#39;outer&#39;</span><span class="p">,</span> <span class="n">on</span> <span class="o">=</span><span class="s1">&#39;Артикул&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Бренд&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">==</span><span class="kc">False</span><span class="p">),:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;Склад&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">==</span><span class="kc">False</span><span class="p">),:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[44]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Бренд</th>
+      <th>Категория</th>
+      <th>Наименование</th>
+      <th>Номер 1C</th>
+      <th>Артикул</th>
+      <th>Размер_x</th>
+      <th>Количество</th>
+      <th>Размер_y</th>
+      <th>Склад</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на каблуке</td>
+      <td>10237723.0</td>
+      <td>/АвтопяткаНМ001/Черный</td>
+      <td>0</td>
+      <td>3.0</td>
+      <td>0</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка для женской обуви на высокой танкетке</td>
+      <td>10237724.0</td>
+      <td>/АвтопяткаНМ0010/Черный</td>
+      <td>0</td>
+      <td>6.0</td>
+      <td>0</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>7</th>
       <td>ILTANI</td>
       <td>Автопятки</td>
       <td>Автопятка Heel Mate de Luxe Ажурная-Для женско...</td>
-      <td>10237732</td>
+      <td>10237732.0</td>
+      <td>/АвтопяткаНМ008/Черный</td>
+      <td>0</td>
+      <td>3.0</td>
       <td>0</td>
       <td>Подольск</td>
-      <td>2</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>ILTANI</td>
+      <td>Автопятки</td>
+      <td>Автопятка Heel Mate de Luxe Ажурная-Для женско...</td>
+      <td>10237732.0</td>
+      <td>/АвтопяткаНМ008/Черный</td>
+      <td>0</td>
+      <td>3.0</td>
+      <td>0</td>
+      <td>Екатеринбург</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>ILTANI</td>
+      <td>Блузки</td>
+      <td>Блуза трикотажная с баской</td>
+      <td>9528261.0</td>
+      <td>/БлузаАлина/Белый</td>
+      <td>2XL</td>
+      <td>5.0</td>
+      <td>M</td>
+      <td>Подольск</td>
     </tr>
     <tr>
       <th>...</th>
@@ -13564,65 +14444,90 @@ None
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
-      <th>4652</th>
-      <td>Mask Go On</td>
-      <td>Маски многоразовые</td>
-      <td>Маска защитная 2 шт многоразовая</td>
-      <td>11862254</td>
-      <td>S</td>
-      <td>Санкт-Петербург</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4653</th>
-      <td>Mask Go On</td>
-      <td>Маски многоразовые</td>
-      <td>Маска защитная 2 шт многоразовая</td>
-      <td>11871605</td>
-      <td>XS</td>
-      <td>Краснодар</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4654</th>
-      <td>Mask Go On</td>
-      <td>Маски многоразовые</td>
-      <td>Маска защитная 2 шт многоразовая</td>
-      <td>11871605</td>
-      <td>XS</td>
-      <td>МЛП-Подольск 5</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4655</th>
-      <td>Mask Go On</td>
-      <td>Маски многоразовые</td>
-      <td>Маска защитная 2 шт многоразовая</td>
-      <td>11871605</td>
-      <td>XS</td>
-      <td>Новосибирск</td>
-      <td>1</td>
-    </tr>
-    <tr>
-      <th>4656</th>
-      <td>Mask Go On</td>
-      <td>Маски многоразовые</td>
-      <td>Маска защитная 2 шт многоразовая</td>
-      <td>11871605</td>
+      <th>3322</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709266.0</td>
+      <td>ФутболкаАлекса/СерыйМеланж</td>
+      <td>M</td>
+      <td>5.0</td>
       <td>XS</td>
       <td>Подольск</td>
-      <td>2</td>
+    </tr>
+    <tr>
+      <th>3324</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709266.0</td>
+      <td>ФутболкаАлекса/СерыйМеланж</td>
+      <td>S</td>
+      <td>1.0</td>
+      <td>S</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>3327</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709266.0</td>
+      <td>ФутболкаАлекса/СерыйМеланж</td>
+      <td>S</td>
+      <td>1.0</td>
+      <td>M</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>3331</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709266.0</td>
+      <td>ФутболкаАлекса/СерыйМеланж</td>
+      <td>S</td>
+      <td>1.0</td>
+      <td>L</td>
+      <td>Подольск</td>
+    </tr>
+    <tr>
+      <th>3333</th>
+      <td>ILTANI</td>
+      <td>Футболки</td>
+      <td>Футболка женская</td>
+      <td>12709266.0</td>
+      <td>ФутболкаАлекса/СерыйМеланж</td>
+      <td>S</td>
+      <td>1.0</td>
+      <td>XS</td>
+      <td>Подольск</td>
     </tr>
   </tbody>
 </table>
-<p>4657 rows × 7 columns</p>
+<p>997 rows × 9 columns</p>
 </div>
 </div>
 
 </div>
 
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s1">&#39;output.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
